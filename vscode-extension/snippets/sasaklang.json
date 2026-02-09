@@ -1,0 +1,99 @@
+{
+    "Variable Declaration": {
+        "prefix": "gawe",
+        "body": [
+            "gawe ${1:nama} = ${2:nilai}"
+        ],
+        "description": "Deklarasi variabel dengan gawe"
+    },
+    "Constant Declaration": {
+        "prefix": "tetep",
+        "body": [
+            "tetep ${1:NAMA} = ${2:nilai}"
+        ],
+        "description": "Deklarasi konstanta dengan tetep"
+    },
+    "Print": {
+        "prefix": "tulis",
+        "body": [
+            "tulis(${1:\"pesan\"})"
+        ],
+        "description": "Cetak output dengan tulis"
+    },
+    "Input": {
+        "prefix": "tanya",
+        "body": [
+            "gawe ${1:input} = tanya(${2:\"Prompt: \"})"
+        ],
+        "description": "Baca input dengan tanya"
+    },
+    "If Statement": {
+        "prefix": "yen",
+        "body": [
+            "yen (${1:kondisi}) {",
+            "\t${2:// kode}",
+            "}"
+        ],
+        "description": "If statement dengan yen"
+    },
+    "If-Else Statement": {
+        "prefix": "yenneng",
+        "body": [
+            "yen (${1:kondisi}) {",
+            "\t${2:// jika benar}",
+            "} neng {",
+            "\t${3:// jika salah}",
+            "}"
+        ],
+        "description": "If-else statement dengan yen/neng"
+    },
+    "While Loop": {
+        "prefix": "salama",
+        "body": [
+            "salama (${1:kondisi}) {",
+            "\t${2:// kode}",
+            "}"
+        ],
+        "description": "While loop dengan salama"
+    },
+    "For Loop": {
+        "prefix": "kanggo",
+        "body": [
+            "kanggo (gawe ${1:i} = ${2:0}; ${1:i} < ${3:10}; ${1:i} = ${1:i} + 1) {",
+            "\t${4:// kode}",
+            "}"
+        ],
+        "description": "For loop dengan kanggo"
+    },
+    "Function": {
+        "prefix": "pungsi",
+        "body": [
+            "pungsi ${1:nama}(${2:params}) {",
+            "\t${3:// kode}",
+            "\tbalik ${4:hasil}",
+            "}"
+        ],
+        "description": "Definisi fungsi dengan pungsi"
+    },
+    "Return": {
+        "prefix": "balik",
+        "body": [
+            "balik ${1:nilai}"
+        ],
+        "description": "Return statement dengan balik"
+    },
+    "Array": {
+        "prefix": "array",
+        "body": [
+            "gawe ${1:arr} = [${2:1, 2, 3}]"
+        ],
+        "description": "Deklarasi array"
+    },
+    "Map": {
+        "prefix": "map",
+        "body": [
+            "gawe ${1:obj} = {\"${2:key}\": ${3:value}}"
+        ],
+        "description": "Deklarasi map/object"
+    }
+}
