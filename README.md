@@ -130,8 +130,6 @@ cetak(tambah(5, 10))
 
 ## 🎨 VS Code Extension
 
-## 🎨 VS Code Extension
-
 Extension untuk syntax highlighting dan snippet telah tersedia di Visual Studio Code Marketplace.
 
 ### Cara Install:
