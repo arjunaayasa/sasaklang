@@ -23,9 +23,34 @@
 
 ## 📦 Instalasi
 
-### Build dari Source
+### ⚡ Quick Install (Binary)
 
-Pastikan Go 1.22+ sudah terinstall:
+Download file binary pre-built dari [Halaman Releases](https://github.com/arjunaayasa/sasaklang/releases).
+
+#### Windows
+1.  Download `sasaklang-windows-amd64.exe`.
+2.  Rename menjadi `sasaklang.exe` dan pindahkan ke folder pilihan (misal `C:\sasaklang`).
+3.  Tambahkan folder tersebut ke **Environment Variables -> Path**.
+4.  Buka CMD/PowerShell baru dan ketik `sasaklang`.
+
+#### Linux / macOS
+1.  Download binary (`sasaklang-linux` atau `sasaklang-darwin`).
+2.  Buka terminal dan jalankan:
+    ```bash
+    # Beri izin eksekusi
+    chmod +x sasaklang-darwin
+    
+    # Pindahkan ke bin (agar bisa diakses dari mana saja)
+    sudo mv sasaklang-darwin /usr/local/bin/sasaklang
+    ```
+3.  Cek instalasi:
+    ```bash
+    sasaklang
+    ```
+
+### 🔨 Build dari Source
+
+Jika ingin compile sendiri, pastikan Go 1.22+ terinstall:
 
 ```bash
 git clone https://github.com/arjunaayasa/sasaklang.git
