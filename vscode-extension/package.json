@@ -2,7 +2,7 @@
   "name": "sasaklang",
   "displayName": "SasakLang",
   "description": "Syntax highlighting and snippets for SasakLang programming language",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "publisher": "arjunaayasa",
   "engines": {
     "vscode": "^1.60.0"
@@ -10,10 +10,6 @@
   "categories": [
     "Programming Languages"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/arjunaayasa/sasaklang.git"
-  },
   "contributes": {
     "languages": [
       {
@@ -44,10 +40,6 @@
     ]
   },
   "icon": "images/icon.png",
-  "galleryBanner": {
-    "color": "#1e1e1e",
-    "theme": "dark"
-  },
   "keywords": [
     "sasaklang",
     "sasak",
@@ -55,5 +47,9 @@
     "esolang",
     "programming language"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arjunaayasa/sasaklang"
+  }
 }

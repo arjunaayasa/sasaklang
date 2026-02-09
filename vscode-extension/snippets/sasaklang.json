@@ -14,83 +14,83 @@
         "description": "Deklarasi konstanta dengan tetep"
     },
     "Print": {
-        "prefix": "tulis",
+        "prefix": "cetak",
         "body": [
-            "tulis(${1:\"pesan\"})"
+            "cetak(${1:\"pesan\"})"
         ],
-        "description": "Cetak output dengan tulis"
+        "description": "Cetak output dengan cetak"
     },
     "Input": {
-        "prefix": "tanya",
+        "prefix": "isik",
         "body": [
-            "gawe ${1:input} = tanya(${2:\"Prompt: \"})"
+            "gawe ${1:input} = isik(${2:\"Prompt: \"})"
         ],
-        "description": "Baca input dengan tanya"
+        "description": "Baca input dengan isik"
     },
     "If Statement": {
-        "prefix": "yen",
+        "prefix": "lamun",
         "body": [
-            "yen (${1:kondisi}) {",
+            "lamun (${1:kondisi}) {",
             "\t${2:// kode}",
             "}"
         ],
-        "description": "If statement dengan yen"
+        "description": "If statement dengan lamun"
     },
     "If-Else Statement": {
-        "prefix": "yenneng",
+        "prefix": "lamunendah",
         "body": [
-            "yen (${1:kondisi}) {",
+            "lamun (${1:kondisi}) {",
             "\t${2:// jika benar}",
-            "} neng {",
+            "} endah {",
             "\t${3:// jika salah}",
             "}"
         ],
-        "description": "If-else statement dengan yen/neng"
+        "description": "If-else statement dengan lamun/endah"
     },
     "While Loop": {
-        "prefix": "salama",
+        "prefix": "selame",
         "body": [
-            "salama (${1:kondisi}) {",
+            "selame (${1:kondisi}) {",
             "\t${2:// kode}",
             "}"
         ],
-        "description": "While loop dengan salama"
+        "description": "While loop dengan selame"
     },
     "For Loop": {
-        "prefix": "kanggo",
+        "prefix": "ojok",
         "body": [
-            "kanggo (gawe ${1:i} = ${2:0}; ${1:i} < ${3:10}; ${1:i} = ${1:i} + 1) {",
+            "ojok (gawe ${1:i} = ${2:0}; ${1:i} < ${3:10}; ${1:i} = ${1:i} + 1) {",
             "\t${4:// kode}",
             "}"
         ],
-        "description": "For loop dengan kanggo"
+        "description": "For loop dengan ojok"
     },
     "Function": {
-        "prefix": "pungsi",
+        "prefix": "fungsi",
         "body": [
-            "pungsi ${1:nama}(${2:params}) {",
+            "fungsi ${1:nama}(${2:params}) {",
             "\t${3:// kode}",
-            "\tbalik ${4:hasil}",
+            "\ttulakan ${4:hasil}",
             "}"
         ],
-        "description": "Definisi fungsi dengan pungsi"
+        "description": "Definisi fungsi dengan fungsi"
     },
     "Return": {
-        "prefix": "balik",
+        "prefix": "tulakan",
         "body": [
-            "balik ${1:nilai}"
+            "tulakan ${1:nilai}"
         ],
-        "description": "Return statement dengan balik"
+        "description": "Return statement dengan tulakan"
     },
     "Array": {
-        "prefix": "array",
+        "prefix": "daftar",
         "body": [
             "gawe ${1:arr} = [${2:1, 2, 3}]"
         ],
         "description": "Deklarasi array"
     },
     "Map": {
-        "prefix": "map",
+        "prefix": "peta",
         "body": [
             "gawe ${1:obj} = {\"${2:key}\": ${3:value}}"
         ],

@@ -1,4 +1,4 @@
-# SasakLang
+<h1 align="center">SasakLang</h1>
 
 <p align="center">
   <img src="sasaklang.png" alt="SasakLang Logo" width="200"/>
@@ -130,11 +130,23 @@ cetak(tambah(5, 10))
 
 ## 🎨 VS Code Extension
 
-Extension untuk syntax highlighting tersedia di folder `vscode-extension/`.
+## 🎨 VS Code Extension
 
-1. Copy folder `vscode-extension` ke `~/.vscode/extensions/sasaklang`
-2. Restart VS Code
-3. Buka file `.ssk` (SasakLang)
+Extension untuk syntax highlighting dan snippet telah tersedia di Visual Studio Code Marketplace.
+
+### Cara Install:
+1.  Buka **VS Code**.
+2.  Masuk ke menu **Extensions** (Ctrl+Shift+X).
+3.  Cari **"SasakLang"**.
+4.  Klik **Install**.
+
+### Install Manual (.vsix):
+Jika tidak ketemu di marketplace, Anda bisa install menggunakan file installer yang tersedia di [Releases](https://github.com/arjunaayasa/sasaklang/releases):
+1.  Download file `.vsix` terbaru.
+2.  Di VS Code, buka menu Extensions -> Klik titik tiga (`...`) di pojok kanan atas.
+3.  Pilih **"Install from VSIX..."**.
+4.  Pilih file yang sudah didownload.
+
 
 ## 📄 Lisensi
 
