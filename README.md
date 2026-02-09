@@ -148,6 +148,21 @@ Jika tidak ketemu di marketplace, Anda bisa install menggunakan file installer y
 4.  Pilih file yang sudah didownload.
 
 
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Bantu kami melestarikan budaya Sasak melalui kode.
+
+1.  **Fork** repository ini.
+2.  Buat branch fitur baru (`git checkout -b fitur-keren`).
+3.  Commit perubahan Anda (`git commit -m 'Menambahkan fitur keren'`).
+4.  Push ke branch (`git push origin fitur-keren`).
+5.  Buat **Pull Request**.
+
+Jangan lupa jalankan test sebelum commit:
+```bash
+go test ./...
+```
+
 ## 📄 Lisensi
 
 MIT
