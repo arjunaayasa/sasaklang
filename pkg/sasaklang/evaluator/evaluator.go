@@ -282,7 +282,7 @@ func nativeBoolToBooleanObject(input bool) *object.Boolean {
 
 func evalPrefixExpression(operator string, right object.Object) object.Object {
 	switch operator {
-	case "!":
+	case "ndek", "!":
 		return evalBangOperatorExpression(right)
 	case "-":
 		return evalMinusPrefixOperatorExpression(right)
@@ -322,9 +322,9 @@ func evalInfixExpression(operator string, left, right object.Object) object.Obje
 		return nativeBoolToBooleanObject(left == right)
 	case operator == "!=":
 		return nativeBoolToBooleanObject(left != right)
-	case operator == "&&":
+	case operator == "ance" || operator == "&&":
 		return nativeBoolToBooleanObject(isTruthy(left) && isTruthy(right))
-	case operator == "||":
+	case operator == "atau" || operator == "||":
 		return nativeBoolToBooleanObject(isTruthy(left) || isTruthy(right))
 	case left.Type() != right.Type():
 		return newError("tipe tidak cocok: %s %s %s", left.Type(), operator, right.Type())

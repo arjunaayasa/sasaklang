@@ -76,9 +76,9 @@ type Boolean struct {
 func (b *Boolean) Type() ObjectType { return BOOLEAN_OBJ }
 func (b *Boolean) Inspect() string {
 	if b.Value {
-		return "bener"
+		return "kenak"
 	}
-	return "salah"
+	return "salak"
 }
 func (b *Boolean) HashKey() HashKey {
 	var value uint64
@@ -94,7 +94,7 @@ func (b *Boolean) HashKey() HashKey {
 type Null struct{}
 
 func (n *Null) Type() ObjectType { return NULL_OBJ }
-func (n *Null) Inspect() string  { return "kosong" }
+func (n *Null) Inspect() string  { return "ndarak" }
 
 // ReturnValue wraps a return value
 type ReturnValue struct {
@@ -123,13 +123,13 @@ func (e *Error) Inspect() string {
 type BreakReturnValue struct{}
 
 func (br *BreakReturnValue) Type() ObjectType { return BREAK_OBJ }
-func (br *BreakReturnValue) Inspect() string  { return "tipuq" }
+func (br *BreakReturnValue) Inspect() string  { return "mentelah" }
 
 // ContinueReturnValue wraps a continue statement
 type ContinueReturnValue struct{}
 
 func (cr *ContinueReturnValue) Type() ObjectType { return CONTINUE_OBJ }
-func (cr *ContinueReturnValue) Inspect() string  { return "lanjut" }
+func (cr *ContinueReturnValue) Inspect() string  { return "lanjutan" }
 
 // Function represents a function object
 type Function struct {
@@ -146,7 +146,7 @@ func (f *Function) Inspect() string {
 	for _, p := range f.Parameters {
 		params = append(params, p.String())
 	}
-	out.WriteString("pungsi")
+	out.WriteString("fungsi")
 	if f.Name != "" {
 		out.WriteString(" " + f.Name)
 	}

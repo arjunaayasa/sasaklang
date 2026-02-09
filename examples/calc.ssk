@@ -1,44 +1,21 @@
-# SasakLang Demo - Kalkulasi
-# Contoh operasi aritmatika
+# Kalkulator sederhana
+cetak("=== Kalkulator SasakLang ===")
 
-tulis("=== Kalkulator SasakLang ===")
-tulis("")
-
-# Operasi dasar
 gawe a = 10
-gawe b = 3
+gawe b = 5
 
-tulis("a =", a)
-tulis("b =", b)
-tulis("")
+cetak("a =", a)
+cetak("b =", b)
+cetak("Penambahan:", a + b)
+cetak("Pengurangan:", a - b)
+cetak("Perkalian:", a * b)
+cetak("Pembagian:", a / b)
+cetak("Modulus:", a % b)
 
-tulis("Operasi Dasar:")
-tulis("a + b =", a + b)
-tulis("a - b =", a - b)
-tulis("a * b =", a * b)
-tulis("a / b =", a / b)
-tulis("a % b =", a % b)
-tulis("")
-
-# Operasi perbandingan
-tulis("Perbandingan:")
-tulis("a > b  =", a > b)
-tulis("a < b  =", a < b)
-tulis("a == b =", a == b)
-tulis("a != b =", a != b)
-tulis("a >= b =", a >= b)
-tulis("a <= b =", a <= b)
-tulis("")
-
-# Konstanta tidak bisa diubah
-tetep MAX = 100
-tulis("Konstanta MAX =", MAX)
-
-# Operasi kompleks
-gawe hasil = (a + b) * 2 - 5
-tulis("(a + b) * 2 - 5 =", hasil)
-
-# Negative numbers
-gawe negatif = -10
-tulis("Nilai negatif:", negatif)
-tulis("Negasi:", -negatif)
+cetak("")
+cetak("Logika:")
+cetak("a > b:", a > b)
+cetak("a == b:", a == b)
+cetak("kenak ance salak:", kenak ance salak)
+cetak("kenak atau salak:", kenak atau salak)
+cetak("ndek kenak:", ndek kenak)

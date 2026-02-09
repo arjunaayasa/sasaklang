@@ -41,15 +41,15 @@
             "patterns": [
                 {
                     "name": "keyword.control.sasaklang",
-                    "match": "\\b(yen|neng|salama|kanggo|balik|tipuq|lanjut)\\b"
+                    "match": "\\b(lamun|endah|selame|ojok|tulakan|mentelah|lanjutan)\\b"
                 },
                 {
                     "name": "keyword.declaration.sasaklang",
-                    "match": "\\b(gawe|tetep|pungsi)\\b"
+                    "match": "\\b(gawe|tetep|fungsi)\\b"
                 },
                 {
                     "name": "support.function.builtin.sasaklang",
-                    "match": "\\b(tulis|tanya|panjang|jenis|waktu|dorong|pertama|akhir|antos|acak)\\b"
+                    "match": "\\b(cetak|isik|belong|jenis|waktu|sorong|bait|ngatur|tedem|acak)\\b"
                 }
             ]
         },
@@ -76,11 +76,11 @@
             "patterns": [
                 {
                     "name": "constant.language.boolean.sasaklang",
-                    "match": "\\b(bener|salah)\\b"
+                    "match": "\\b(kenak|salak)\\b"
                 },
                 {
                     "name": "constant.language.null.sasaklang",
-                    "match": "\\b(kosong)\\b"
+                    "match": "\\b(ndarak)\\b"
                 }
             ]
         },
@@ -92,7 +92,7 @@
                 },
                 {
                     "name": "keyword.operator.logical.sasaklang",
-                    "match": "(&&|\\|\\||!)"
+                    "match": "(&&|\\|\\||!|ance|atau|ndek)"
                 },
                 {
                     "name": "keyword.operator.arithmetic.sasaklang",

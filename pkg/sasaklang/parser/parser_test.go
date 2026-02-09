@@ -91,9 +91,9 @@ func TestConstStatements(t *testing.T) {
 
 func TestReturnStatements(t *testing.T) {
 	input := `
-balik 5
-balik 10
-balik 993322
+tulakan 5
+tulakan 10
+tulakan 993322
 `
 	l := lexer.New(input)
 	p := New(l)
@@ -112,15 +112,15 @@ balik 993322
 			t.Errorf("stmt not *ast.ReturnStatement. got=%T", stmt)
 			continue
 		}
-		if returnStmt.TokenLiteral() != "balik" {
-			t.Errorf("returnStmt.TokenLiteral not 'balik', got %q",
+		if returnStmt.TokenLiteral() != "tulakan" {
+			t.Errorf("returnStmt.TokenLiteral not 'tulakan', got %q",
 				returnStmt.TokenLiteral())
 		}
 	}
 }
 
 func TestIfExpression(t *testing.T) {
-	input := `yen (x < y) { x }`
+	input := `lamun (x < y) { x }`
 
 	l := lexer.New(input)
 	p := New(l)
@@ -150,7 +150,7 @@ func TestIfExpression(t *testing.T) {
 }
 
 func TestIfElseExpression(t *testing.T) {
-	input := `yen (x < y) { x } neng { y }`
+	input := `lamun (x < y) { x } endah { y }`
 
 	l := lexer.New(input)
 	p := New(l)
@@ -180,7 +180,7 @@ func TestIfElseExpression(t *testing.T) {
 }
 
 func TestFunctionLiteral(t *testing.T) {
-	input := `pungsi(x, y) { x + y }`
+	input := `fungsi(x, y) { x + y }`
 
 	l := lexer.New(input)
 	p := New(l)
@@ -211,7 +211,7 @@ func TestFunctionLiteral(t *testing.T) {
 }
 
 func TestNamedFunction(t *testing.T) {
-	input := `pungsi tambah(a, b) { balik a + b }`
+	input := `fungsi tambah(a, b) { tulakan a + b }`
 
 	l := lexer.New(input)
 	p := New(l)
@@ -241,7 +241,7 @@ func TestNamedFunction(t *testing.T) {
 }
 
 func TestWhileStatement(t *testing.T) {
-	input := `salama (x > 0) { x = x - 1 }`
+	input := `selame (x > 0) { x = x - 1 }`
 
 	l := lexer.New(input)
 	p := New(l)
@@ -269,7 +269,7 @@ func TestWhileStatement(t *testing.T) {
 }
 
 func TestForStatement(t *testing.T) {
-	input := `kanggo (gawe i = 0; i < 10; i = i + 1) { tulis(i) }`
+	input := `ojok (gawe i = 0; i < 10; i = i + 1) { cetak(i) }`
 
 	l := lexer.New(input)
 	p := New(l)

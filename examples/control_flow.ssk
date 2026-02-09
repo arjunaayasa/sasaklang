@@ -1,54 +1,46 @@
-# SasakLang Demo - Control Flow
-# Contoh if/else, while, dan for
+# Control Flow Demo
 
-tulis("=== Control Flow di SasakLang ===")
-tulis("")
-
-# If/else dengan yen/neng
-gawe nilai = 85
-
-tulis("Nilai:", nilai)
-
-yen (nilai >= 90) {
-    tulis("Grade: A - Sangat Baik!")
-} neng {
-    yen (nilai >= 80) {
-        tulis("Grade: B - Baik")
-    } neng {
-        yen (nilai >= 70) {
-            tulis("Grade: C - Cukup")
-        } neng {
-            tulis("Grade: D - Perlu Perbaikan")
-        }
-    }
-}
-
-tulis("")
-
-# While loop dengan salama
-tulis("Hitung mundur dengan salama:")
-gawe count = 5
-salama (count > 0) {
-    tulis(count)
-    count = count - 1
-}
-tulis("Selesai!")
-
-tulis("")
-
-# For loop dengan kanggo
-tulis("Perkalian 3 dengan kanggo:")
-kanggo (gawe i = 1; i <= 5; i = i + 1) {
-    tulis("3 x", i, "=", 3 * i)
-}
-
-tulis("")
-
-# Boolean operators
+# If/Else (lamun/endah)
 gawe x = 10
-gawe y = 5
+cetak("x =", x)
 
-tulis("x =", x, ", y =", y)
-tulis("x > 5 && y < 10:", x > 5 && y < 10)
-tulis("x < 5 || y > 0:", x < 5 || y > 0)
-tulis("!(x == y):", !(x == y))
+lamun (x > 5) {
+    cetak("x lebih besar dari 5")
+} endah {
+    cetak("x kurang dari atau sama dengan 5")
+}
+
+cetak("")
+
+# While Loop (selame)
+cetak("Hitung mundur:")
+gawe i = 5
+selame (i > 0) {
+    cetak(i)
+    gawe i = i - 1
+}
+cetak("Mulai!")
+
+cetak("")
+
+# For Loop (ojok)
+cetak("Looping for:")
+ojok (gawe j = 0; j < 3; j = j + 1) {
+    cetak("Iterasi ke-", j)
+}
+
+cetak("")
+
+# Break & Continue (mentelah/lanjutan)
+cetak("Demo mentelah & lanjutan:")
+ojok (gawe k = 1; k <= 5; k = k + 1) {
+    lamun (k == 2) {
+        cetak("Lewati 2 (lanjutan)")
+        lanjutan
+    }
+    lamun (k == 4) {
+        cetak("Berhenti di 4 (mentelah)")
+        mentelah
+    }
+    cetak("Angka:", k)
+}

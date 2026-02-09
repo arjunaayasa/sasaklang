@@ -11,15 +11,15 @@ import (
 	"github.com/arjunaayasa/sasaklang/pkg/sasaklang/object"
 )
 
-// builtinAntos sleeps for n milliseconds
-func builtinAntos(args ...object.Object) object.Object {
+// builtinTedem sleeps for n milliseconds
+func builtinTedem(args ...object.Object) object.Object {
 	if len(args) != 1 {
-		return &object.Error{Message: fmt.Sprintf("antos() butuh 1 argumen (ms), dapat %d", len(args))}
+		return &object.Error{Message: fmt.Sprintf("tedem() butuh 1 argumen (ms), dapat %d", len(args))}
 	}
 
 	arg, ok := args[0].(*object.Integer)
 	if !ok {
-		return &object.Error{Message: "argumen antos() harus angka"}
+		return &object.Error{Message: "argumen tedem() harus angka"}
 	}
 
 	time.Sleep(time.Duration(arg.Value) * time.Millisecond)
@@ -46,20 +46,20 @@ func builtinAcak(args ...object.Object) object.Object {
 
 // Builtins contains all builtin functions
 var Builtins = map[string]*object.Builtin{
-	"tulis":   {Fn: builtinTulis},
-	"tanya":   {Fn: builtinTanya},
-	"panjang": {Fn: builtinPanjang},
-	"jenis":   {Fn: builtinJenis},
-	"waktu":   {Fn: builtinWaktu},
-	"dorong":  {Fn: builtinDorong},
-	"pertama": {Fn: builtinPertama},
-	"akhir":   {Fn: builtinAkhir},
-	"antos":   {Fn: builtinAntos},
-	"acak":    {Fn: builtinAcak},
+	"cetak":  {Fn: builtinCetak},
+	"isik":   {Fn: builtinIsik},
+	"belong": {Fn: builtinBelong},
+	"jenis":  {Fn: builtinJenis},
+	"waktu":  {Fn: builtinWaktu},
+	"sorong": {Fn: builtinSorong},
+	"bait":   {Fn: builtinBait},   // get -> bait
+	"ngatur": {Fn: builtinNgatur}, // set -> ngatur
+	"tedem":  {Fn: builtinTedem},
+	"acak":   {Fn: builtinAcak},
 }
 
-// builtinTulis prints arguments separated by space with newline
-func builtinTulis(args ...object.Object) object.Object {
+// builtinCetak prints arguments separated by space with newline
+func builtinCetak(args ...object.Object) object.Object {
 	strs := make([]string, len(args))
 	for i, arg := range args {
 		strs[i] = arg.Inspect()
@@ -68,10 +68,10 @@ func builtinTulis(args ...object.Object) object.Object {
 	return &object.Null{}
 }
 
-// builtinTanya reads input from stdin
-func builtinTanya(args ...object.Object) object.Object {
+// builtinIsik reads input from stdin
+func builtinIsik(args ...object.Object) object.Object {
 	if len(args) > 1 {
-		return &object.Error{Message: "tanya() butuh maksimal 1 argumen"}
+		return &object.Error{Message: "isik() butuh maksimal 1 argumen"}
 	}
 
 	if len(args) == 1 {
@@ -87,10 +87,10 @@ func builtinTanya(args ...object.Object) object.Object {
 	return &object.String{Value: strings.TrimSuffix(input, "\n")}
 }
 
-// builtinPanjang returns the length of string or array
-func builtinPanjang(args ...object.Object) object.Object {
+// builtinBelong returns the length of string or array
+func builtinBelong(args ...object.Object) object.Object {
 	if len(args) != 1 {
-		return &object.Error{Message: fmt.Sprintf("panjang() butuh 1 argumen, dapat %d", len(args))}
+		return &object.Error{Message: fmt.Sprintf("belong() butuh 1 argumen, dapat %d", len(args))}
 	}
 
 	switch arg := args[0].(type) {
@@ -99,7 +99,7 @@ func builtinPanjang(args ...object.Object) object.Object {
 	case *object.Array:
 		return &object.Integer{Value: int64(len(arg.Elements))}
 	default:
-		return &object.Error{Message: fmt.Sprintf("panjang() tidak mendukung tipe %s", arg.Type())}
+		return &object.Error{Message: fmt.Sprintf("belong() tidak mendukung tipe %s", arg.Type())}
 	}
 }
 
@@ -118,11 +118,11 @@ func builtinJenis(args ...object.Object) object.Object {
 	case *object.Boolean:
 		typeName = "boolean"
 	case *object.Null:
-		typeName = "kosong"
+		typeName = "ndarak"
 	case *object.Array:
-		typeName = "array"
+		typeName = "daftar"
 	case *object.Map:
-		typeName = "map"
+		typeName = "peta"
 	case *object.Function:
 		typeName = "fungsi"
 	case *object.Builtin:
@@ -142,15 +142,15 @@ func builtinWaktu(args ...object.Object) object.Object {
 	return &object.Integer{Value: time.Now().Unix()}
 }
 
-// builtinDorong appends an element to an array
-func builtinDorong(args ...object.Object) object.Object {
+// builtinSorong appends an element to an array
+func builtinSorong(args ...object.Object) object.Object {
 	if len(args) != 2 {
-		return &object.Error{Message: fmt.Sprintf("dorong() butuh 2 argumen, dapat %d", len(args))}
+		return &object.Error{Message: fmt.Sprintf("sorong() butuh 2 argumen, dapat %d", len(args))}
 	}
 
 	arr, ok := args[0].(*object.Array)
 	if !ok {
-		return &object.Error{Message: "argumen pertama dorong() harus array"}
+		return &object.Error{Message: "argumen pertama sorong() harus daftar"}
 	}
 
 	newElements := make([]object.Object, len(arr.Elements)+1)
@@ -160,38 +160,75 @@ func builtinDorong(args ...object.Object) object.Object {
 	return &object.Array{Elements: newElements}
 }
 
-// builtinPertama returns the first element of an array
-func builtinPertama(args ...object.Object) object.Object {
-	if len(args) != 1 {
-		return &object.Error{Message: fmt.Sprintf("pertama() butuh 1 argumen, dapat %d", len(args))}
+// builtinBait returns an element from array or map (get)
+func builtinBait(args ...object.Object) object.Object {
+	if len(args) != 2 {
+		return &object.Error{Message: fmt.Sprintf("bait() butuh 2 argumen (koleksi, indeks/kunci), dapat %d", len(args))}
 	}
 
-	arr, ok := args[0].(*object.Array)
-	if !ok {
-		return &object.Error{Message: "argumen pertama() harus array"}
-	}
+	switch container := args[0].(type) {
+	case *object.Array:
+		idx, ok := args[1].(*object.Integer)
+		if !ok {
+			return &object.Error{Message: "indeks harus angka"}
+		}
+		if idx.Value < 0 || idx.Value >= int64(len(container.Elements)) {
+			return &object.Null{}
+		}
+		return container.Elements[idx.Value]
 
-	if len(arr.Elements) == 0 {
-		return &object.Null{}
-	}
+	case *object.Map:
+		key, ok := args[1].(object.Hashable)
+		if !ok {
+			return &object.Error{Message: "kunci peta tidak valid"}
+		}
+		pair, ok := container.Pairs[key.HashKey()]
+		if !ok {
+			return &object.Null{}
+		}
+		return pair.Value
 
-	return arr.Elements[0]
+	default:
+		return &object.Error{Message: "argumen pertama harus daftar atau peta"}
+	}
 }
 
-// builtinAkhir returns the last element of an array
-func builtinAkhir(args ...object.Object) object.Object {
-	if len(args) != 1 {
-		return &object.Error{Message: fmt.Sprintf("akhir() butuh 1 argumen, dapat %d", len(args))}
+// builtinNgatur sets an element in array or map (set) - returns the modified collection
+// Note: SasakLang objects are immutable by default in implementation (except map/array internal pointers),
+// but builtins usually return new objects or modifying them?
+// The existing implementation of `evalIndexExpression` supports reading.
+// Writing via index `arr[0] = 1` involves `evalAssignmentExpression` but that likely needs AST support for index assignment which parser might not handle as "assignment" (only IDENT).
+// Parser `parseAssignmentExpression` takes an identifier.
+// So `ngatur` is essential for modifying arrays/maps if syntax doesn't support `arr[i] = val`.
+func builtinNgatur(args ...object.Object) object.Object {
+	if len(args) != 3 {
+		return &object.Error{Message: fmt.Sprintf("ngatur() butuh 3 argumen (koleksi, indeks/kunci, nilai), dapat %d", len(args))}
 	}
 
-	arr, ok := args[0].(*object.Array)
-	if !ok {
-		return &object.Error{Message: "argumen akhir() harus array"}
-	}
+	switch container := args[0].(type) {
+	case *object.Array:
+		idx, ok := args[1].(*object.Integer)
+		if !ok {
+			return &object.Error{Message: "indeks harus angka"}
+		}
 
-	if len(arr.Elements) == 0 {
-		return &object.Null{}
-	}
+		// For simplicity, we modify correctly. If index out of bounds, maybe grow or error?
+		if idx.Value < 0 || idx.Value >= int64(len(container.Elements)) {
+			return &object.Error{Message: "indeks di luar batas"}
+		}
 
-	return arr.Elements[len(arr.Elements)-1]
+		container.Elements[idx.Value] = args[2] // Mutation
+		return container
+
+	case *object.Map:
+		key, ok := args[1].(object.Hashable)
+		if !ok {
+			return &object.Error{Message: "kunci peta tidak valid"}
+		}
+		container.Pairs[key.HashKey()] = object.MapPair{Key: args[1], Value: args[2]} // Mutation
+		return container
+
+	default:
+		return &object.Error{Message: "argumen pertama harus daftar atau peta"}
+	}
 }

@@ -42,8 +42,8 @@ func TestEvalBooleanExpression(t *testing.T) {
 		input    string
 		expected bool
 	}{
-		{"bener", true},
-		{"salah", false},
+		{"kenak", true},
+		{"salak", false},
 		{"1 < 2", true},
 		{"1 > 2", false},
 		{"1 < 1", false},
@@ -56,18 +56,18 @@ func TestEvalBooleanExpression(t *testing.T) {
 		{"1 >= 1", true},
 		{"1 <= 2", true},
 		{"2 >= 1", true},
-		{"bener == bener", true},
-		{"salah == salah", true},
-		{"bener == salah", false},
-		{"bener != salah", true},
-		{"(1 < 2) == bener", true},
-		{"(1 < 2) == salah", false},
-		{"(1 > 2) == bener", false},
-		{"(1 > 2) == salah", true},
-		{"bener && bener", true},
-		{"bener && salah", false},
-		{"salah || bener", true},
-		{"salah || salah", false},
+		{"kenak == kenak", true},
+		{"salak == salak", true},
+		{"kenak == salak", false},
+		{"kenak != salak", true},
+		{"(1 < 2) == kenak", true},
+		{"(1 < 2) == salak", false},
+		{"(1 > 2) == kenak", false},
+		{"(1 > 2) == salak", true},
+		{"kenak ance kenak", true},
+		{"kenak ance salak", false},
+		{"salak atau kenak", true},
+		{"salak atau salak", false},
 	}
 
 	for _, tt := range tests {
@@ -81,12 +81,12 @@ func TestBangOperator(t *testing.T) {
 		input    string
 		expected bool
 	}{
-		{"!bener", false},
-		{"!salah", true},
-		{"!5", false},
-		{"!!bener", true},
-		{"!!salah", false},
-		{"!!5", true},
+		{"ndek kenak", false},
+		{"ndek salak", true},
+		{"ndek 5", false},
+		{"ndek ndek kenak", true},
+		{"ndek ndek salak", false},
+		{"ndek ndek 5", true},
 	}
 
 	for _, tt := range tests {
@@ -100,13 +100,13 @@ func TestIfElseExpressions(t *testing.T) {
 		input    string
 		expected interface{}
 	}{
-		{"yen (bener) { 10 }", 10},
-		{"yen (salah) { 10 }", nil},
-		{"yen (1) { 10 }", 10},
-		{"yen (1 < 2) { 10 }", 10},
-		{"yen (1 > 2) { 10 }", nil},
-		{"yen (1 > 2) { 10 } neng { 20 }", 20},
-		{"yen (1 < 2) { 10 } neng { 20 }", 10},
+		{"lamun (kenak) { 10 }", 10},
+		{"lamun (salak) { 10 }", nil},
+		{"lamun (1) { 10 }", 10},
+		{"lamun (1 < 2) { 10 }", 10},
+		{"lamun (1 > 2) { 10 }", nil},
+		{"lamun (1 > 2) { 10 } endah { 20 }", 20},
+		{"lamun (1 < 2) { 10 } endah { 20 }", 10},
 	}
 
 	for _, tt := range tests {
@@ -137,7 +137,7 @@ func TestLetStatements(t *testing.T) {
 }
 
 func TestFunctionObject(t *testing.T) {
-	input := "pungsi(x) { x + 2 }"
+	input := "fungsi(x) { x + 2 }"
 
 	evaluated := testEval(input)
 	fn, ok := evaluated.(*object.Function)
@@ -165,12 +165,12 @@ func TestFunctionApplication(t *testing.T) {
 		input    string
 		expected int64
 	}{
-		{"gawe identity = pungsi(x) { x }; identity(5);", 5},
-		{"gawe identity = pungsi(x) { balik x }; identity(5);", 5},
-		{"gawe double = pungsi(x) { x * 2 }; double(5);", 10},
-		{"gawe add = pungsi(x, y) { x + y }; add(5, 5);", 10},
-		{"gawe add = pungsi(x, y) { x + y }; add(5 + 5, add(5, 5));", 20},
-		{"pungsi(x) { x }(5)", 5},
+		{"gawe identity = fungsi(x) { x }; identity(5);", 5},
+		{"gawe identity = fungsi(x) { tulakan x }; identity(5);", 5},
+		{"gawe double = fungsi(x) { x * 2 }; double(5);", 10},
+		{"gawe add = fungsi(x, y) { x + y }; add(5, 5);", 10},
+		{"gawe add = fungsi(x, y) { x + y }; add(5 + 5, add(5, 5));", 20},
+		{"fungsi(x) { x }(5)", 5},
 	}
 
 	for _, tt := range tests {
@@ -180,8 +180,8 @@ func TestFunctionApplication(t *testing.T) {
 
 func TestNamedFunction(t *testing.T) {
 	input := `
-pungsi tambah(a, b) {
-    balik a + b
+fungsi tambah(a, b) {
+    tulakan a + b
 }
 tambah(3, 4)
 `
@@ -191,11 +191,11 @@ tambah(3, 4)
 
 func TestRecursiveFunction(t *testing.T) {
 	input := `
-pungsi factorial(n) {
-    yen (n <= 1) {
-        balik 1
-    } neng {
-        balik n * factorial(n - 1)
+fungsi factorial(n) {
+    lamun (n <= 1) {
+        tulakan 1
+    } endah {
+        tulakan n * factorial(n - 1)
     }
 }
 factorial(5)
@@ -206,8 +206,8 @@ factorial(5)
 
 func TestClosures(t *testing.T) {
 	input := `
-gawe newAdder = pungsi(x) {
-    pungsi(y) { x + y }
+gawe newAdder = fungsi(x) {
+    fungsi(y) { x + y }
 }
 gawe addTwo = newAdder(2)
 addTwo(2)
@@ -326,7 +326,7 @@ func TestWhileLoop(t *testing.T) {
 	input := `
 gawe x = 0
 gawe sum = 0
-salama (x < 5) {
+selame (x < 5) {
     sum = sum + x
     x = x + 1
 }
@@ -339,7 +339,7 @@ sum
 func TestForLoop(t *testing.T) {
 	input := `
 gawe sum = 0
-kanggo (gawe i = 1; i <= 5; i = i + 1) {
+ojok (gawe i = 1; i <= 5; i = i + 1) {
     sum = sum + i
 }
 sum
@@ -353,15 +353,15 @@ func TestBuiltinFunctions(t *testing.T) {
 		input    string
 		expected interface{}
 	}{
-		{`panjang("")`, 0},
-		{`panjang("four")`, 4},
-		{`panjang("hello world")`, 11},
-		{`panjang([1, 2, 3])`, 3},
+		{`belong("")`, 0},
+		{`belong("four")`, 4},
+		{`belong("hello world")`, 11},
+		{`belong([1, 2, 3])`, 3},
 		{`jenis(5)`, "angka"},
 		{`jenis("hello")`, "teks"},
-		{`jenis(bener)`, "boolean"},
-		{`jenis(kosong)`, "kosong"},
-		{`jenis([1, 2])`, "array"},
+		{`jenis(kenak)`, "boolean"},
+		{`jenis(ndarak)`, "ndarak"},
+		{`jenis([1, 2])`, "daftar"},
 	}
 
 	for _, tt := range tests {

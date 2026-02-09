@@ -74,21 +74,23 @@ const (
 )
 
 // keywords maps Sasak keywords to their token types
-// Note: tulis, tanya are NOT keywords - they are built-in functions
 var keywords = map[string]TokenType{
-	"gawe":   GAWE,
-	"tetep":  TETEP,
-	"yen":    YEN,
-	"neng":   NENG,
-	"salama": SALAMA,
-	"kanggo": KANGGO,
-	"pungsi": PUNGSI,
-	"balik":  BALIK,
-	"tipuq":  TIPUQ,
-	"lanjut": LANJUT,
-	"bener":  BENER,
-	"salah":  SALAH,
-	"kosong": KOSONG,
+	"gawe":     GAWE,
+	"tetep":    TETEP,
+	"lamun":    YEN,
+	"endah":    NENG,
+	"selame":   SALAMA,
+	"ojok":     KANGGO,
+	"fungsi":   PUNGSI,
+	"tulakan":  BALIK,
+	"mentelah": TIPUQ,
+	"lanjutan": LANJUT,
+	"kenak":    BENER,
+	"salak":    SALAH,
+	"ndarak":   KOSONG,
+	"ance":     AND,
+	"atau":     OR,
+	"ndek":     BANG,
 }
 
 // LookupIdent checks if an identifier is a keyword

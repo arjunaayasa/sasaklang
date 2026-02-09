@@ -1,45 +1,30 @@
-# SasakLang Phase 2 Features Demo
+# Fitur Fase 2 Demo
 
-# 1. Break (tipuq) dan Continue (lanjut)
-tulis("=== Demo Break & Continue ===")
+# Array (daftar) & Map (peta)
+gawe arr = [1, 2, 3]
+cetak("Daftar awal:", arr)
+gawe arr = sorong(arr, 4)
+cetak("Daftar setelah sorong:", arr)
+cetak("Elemen pertama:", bait(arr, 0))
+cetak("Panjang daftar (belong):", belong(arr))
 
-tulis("Looping 1 sampai 10, lewati 5, berhenti di 8:")
-kanggo (gawe i = 1; i <= 10; i = i + 1) {
-    yen (i == 5) {
-        tulis("Melewati angka 5 (lanjut)")
-        lanjut
-    }
+cetak("")
 
-    yen (i == 8) {
-        tulis("Angka 8 ditemukan, berhenti (tipuq)")
-        tipuq
-    }
+gawe m = {"nama": "Sasak", "versi": 1}
+cetak("Peta:", m)
+cetak("Nama:", bait(m, "nama"))
+cetak("Jenis m:", jenis(m))
 
-    tulis("Angka:", i)
-}
+cetak("")
 
-tulis("")
+# Random (acak)
+cetak("Angka acak 0-9:", acak(10))
 
-# 2. Random (acak)
-tulis("=== Demo Random (acak) ===")
-tulis("Angka acak 0-99:", acak(100))
-tulis("Angka acak 0-9:", acak(10))
-tulis("Angka acak 0-1:", acak(2))
+# Sleep (tedem)
+cetak("Tidur 500ms...")
+tedem(500)
+cetak("Bangun!")
 
-tulis("")
-
-# 3. Sleep (antos)
-tulis("=== Demo Sleep (antos) ===")
-tulis("Tunggu 1 detik...")
-antos(1000)
-tulis("Selesai menunggu!")
-
-tulis("")
-tulis("Menghitung mundur dengan jeda:")
-gawe x = 3
-salama (x > 0) {
-    tulis(x, "...")
-    antos(500)
-    x = x - 1
-}
-tulis("Mulai!")
+# Null (ndarak)
+gawe kosong = ndarak
+cetak("Nilai kosong:", kosong)

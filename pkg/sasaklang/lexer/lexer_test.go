@@ -9,32 +9,37 @@ import (
 func TestNextToken(t *testing.T) {
 	input := `gawe x = 5
 tetep PI = 3
-tulis("hello")
-tanya("nama: ")
+cetak("hello")
+isik("nama: ")
 
-yen (x > 3) {
-    balik bener
-} neng {
-    balik salah
+lamun (x > 3) {
+    tulakan kenak
+} endah {
+    tulakan salak
 }
 
-salama (x > 0) {
+selame (x > 0) {
     x = x - 1
 }
 
-kanggo (gawe i = 0; i < 10; i = i + 1) {
-    tulis(i)
+ojok (gawe i = 0; i < 10; i = i + 1) {
+    cetak(i)
 }
 
-pungsi tambah(a, b) {
-    balik a + b
+fungsi tambah(a, b) {
+    tulakan a + b
 }
 
 # ini komentar
 gawe arr = [1, 2, 3]
 gawe obj = {"nama": "test"}
 
-kosong
+ndarak
+mentelah
+lanjutan
+ance
+atau
+ndek
 `
 
 	tests := []struct {
@@ -51,18 +56,18 @@ kosong
 		{token.ASSIGN, "="},
 		{token.INT, "3"},
 		{token.NEWLINE, "\n"},
-		{token.IDENT, "tulis"},
+		{token.IDENT, "cetak"},
 		{token.LPAREN, "("},
 		{token.STRING, "hello"},
 		{token.RPAREN, ")"},
 		{token.NEWLINE, "\n"},
-		{token.IDENT, "tanya"},
+		{token.IDENT, "isik"},
 		{token.LPAREN, "("},
 		{token.STRING, "nama: "},
 		{token.RPAREN, ")"},
 		{token.NEWLINE, "\n"},
 		{token.NEWLINE, "\n"},
-		{token.YEN, "yen"},
+		{token.YEN, "lamun"},
 		{token.LPAREN, "("},
 		{token.IDENT, "x"},
 		{token.GT, ">"},
@@ -70,20 +75,20 @@ kosong
 		{token.RPAREN, ")"},
 		{token.LBRACE, "{"},
 		{token.NEWLINE, "\n"},
-		{token.BALIK, "balik"},
-		{token.BENER, "bener"},
+		{token.BALIK, "tulakan"},
+		{token.BENER, "kenak"},
 		{token.NEWLINE, "\n"},
 		{token.RBRACE, "}"},
-		{token.NENG, "neng"},
+		{token.NENG, "endah"},
 		{token.LBRACE, "{"},
 		{token.NEWLINE, "\n"},
-		{token.BALIK, "balik"},
-		{token.SALAH, "salah"},
+		{token.BALIK, "tulakan"},
+		{token.SALAH, "salak"},
 		{token.NEWLINE, "\n"},
 		{token.RBRACE, "}"},
 		{token.NEWLINE, "\n"},
 		{token.NEWLINE, "\n"},
-		{token.SALAMA, "salama"},
+		{token.SALAMA, "selame"},
 		{token.LPAREN, "("},
 		{token.IDENT, "x"},
 		{token.GT, ">"},
@@ -100,7 +105,84 @@ kosong
 		{token.RBRACE, "}"},
 		{token.NEWLINE, "\n"},
 		{token.NEWLINE, "\n"},
-		{token.KANGGO, "kanggo"},
+		{token.KANGGO, "ojok"},
+		{token.LPAREN, "("},
+		{token.GAWE, "gawe"},
+		{token.IDENT, "i"},
+		{token.ASSIGN, "="},
+		{token.INT, "0"},
+		{token.SEMICOLON, ";"},
+		{token.IDENT, "i"},
+		{token.LT, "<"},
+		{token.INT, "10"},
+		{token.SEMICOLON, ";"},
+		{token.IDENT, "i"},
+		{token.ASSIGN, "="},
+		{token.IDENT, "i"},
+		{token.PLUS, "+"},
+		{token.INT, "1"},
+		{token.RPAREN, ")"},
+		{token.LBRACE, "{"},
+		{token.NEWLINE, "\n"},
+		{token.IDENT, "cetak"},
+		{token.LPAREN, "("},
+		{token.IDENT, "i"},
+		{token.RPAREN, ")"},
+		{token.NEWLINE, "\n"},
+		{token.RBRACE, "}"},
+		{token.NEWLINE, "\n"},
+		{token.NEWLINE, "\n"},
+		{token.PUNGSI, "fungsi"},
+		{token.IDENT, "tambah"},
+		{token.LPAREN, "("},
+		{token.IDENT, "a"},
+		{token.COMMA, ","},
+		{token.IDENT, "b"},
+		{token.RPAREN, ")"},
+		{token.LBRACE, "{"},
+		{token.NEWLINE, "\n"},
+		{token.BALIK, "tulakan"},
+		{token.IDENT, "a"},
+		{token.PLUS, "+"},
+		{token.IDENT, "b"},
+		{token.NEWLINE, "\n"},
+		{token.RBRACE, "}"},
+		{token.NEWLINE, "\n"},
+		{token.NEWLINE, "\n"},
+		{token.NEWLINE, "\n"},
+		{token.GAWE, "gawe"},
+		{token.IDENT, "arr"},
+		{token.ASSIGN, "="},
+		{token.LBRACKET, "["},
+		{token.INT, "1"},
+		{token.COMMA, ","},
+		{token.INT, "2"},
+		{token.COMMA, ","},
+		{token.INT, "3"},
+		{token.RBRACKET, "]"},
+		{token.NEWLINE, "\n"},
+		{token.GAWE, "gawe"},
+		{token.IDENT, "obj"},
+		{token.ASSIGN, "="},
+		{token.LBRACE, "{"},
+		{token.STRING, "nama"},
+		{token.COLON, ":"},
+		{token.STRING, "test"},
+		{token.RBRACE, "}"},
+		{token.NEWLINE, "\n"},
+		{token.NEWLINE, "\n"},
+		{token.KOSONG, "ndarak"},
+		{token.NEWLINE, "\n"},
+		{token.TIPUQ, "mentelah"},
+		{token.NEWLINE, "\n"},
+		{token.LANJUT, "lanjutan"},
+		{token.NEWLINE, "\n"},
+		{token.AND, "ance"},
+		{token.NEWLINE, "\n"},
+		{token.OR, "atau"},
+		{token.NEWLINE, "\n"},
+		{token.BANG, "ndek"},
+		{token.NEWLINE, "\n"},
 	}
 
 	l := New(input)
@@ -121,7 +203,7 @@ kosong
 }
 
 func TestOperators(t *testing.T) {
-	input := `+ - * / % = == != < > <= >= && || !`
+	input := `+ - * / % = == != < > <= >= ance || atau ! ndek`
 
 	tests := []struct {
 		expectedType    token.TokenType
@@ -139,9 +221,11 @@ func TestOperators(t *testing.T) {
 		{token.GT, ">"},
 		{token.LTE, "<="},
 		{token.GTE, ">="},
-		{token.AND, "&&"},
+		{token.AND, "ance"},
 		{token.OR, "||"},
+		{token.OR, "atau"},
 		{token.BANG, "!"},
+		{token.BANG, "ndek"},
 		{token.EOF, ""},
 	}
 

@@ -247,7 +247,7 @@ type NullLiteral struct {
 
 func (n *NullLiteral) expressionNode()      {}
 func (n *NullLiteral) TokenLiteral() string { return n.Token.Literal }
-func (n *NullLiteral) String() string       { return "kosong" }
+func (n *NullLiteral) String() string       { return "ndarak" }
 
 // IfExpression represents an if-else expression
 type IfExpression struct {
@@ -263,13 +263,13 @@ func (ie *IfExpression) TokenLiteral() string { return ie.Token.Literal }
 func (ie *IfExpression) String() string {
 	var out bytes.Buffer
 
-	out.WriteString("yen")
+	out.WriteString("lamun")
 	out.WriteString(ie.Condition.String())
 	out.WriteString(" ")
 	out.WriteString(ie.Consequence.String())
 
 	if ie.Alternative != nil {
-		out.WriteString("neng ")
+		out.WriteString("endah ")
 		out.WriteString(ie.Alternative.String())
 	}
 
@@ -411,7 +411,7 @@ func (ws *WhileStatement) TokenLiteral() string { return ws.Token.Literal }
 func (ws *WhileStatement) String() string {
 	var out bytes.Buffer
 
-	out.WriteString("salama ")
+	out.WriteString("selame ")
 	out.WriteString(ws.Condition.String())
 	out.WriteString(" ")
 	out.WriteString(ws.Body.String())
@@ -434,7 +434,7 @@ func (fs *ForStatement) TokenLiteral() string { return fs.Token.Literal }
 func (fs *ForStatement) String() string {
 	var out bytes.Buffer
 
-	out.WriteString("kanggo (")
+	out.WriteString("ojok (")
 	if fs.Init != nil {
 		out.WriteString(fs.Init.String())
 	}
