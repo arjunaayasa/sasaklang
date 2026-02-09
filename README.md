@@ -23,30 +23,27 @@
 
 ## 📦 Instalasi
 
-### ⚡ Quick Install (Binary)
+### ⚡ Quick Install (Recommended)
+Download dan jalankan installer otomatis dengan one-liner:
 
-Download file binary pre-built dari [Halaman Releases](https://github.com/arjunaayasa/sasaklang/releases).
-
-#### Windows
-1.  Download `sasaklang-windows-amd64.exe`.
-2.  Rename menjadi `sasaklang.exe` dan pindahkan ke folder pilihan (misal `C:\sasaklang`).
-3.  Tambahkan folder tersebut ke **Environment Variables -> Path**.
-4.  Buka CMD/PowerShell baru dan ketik `sasaklang`.
+#### Windows (PowerShell)
+```powershell
+irm https://raw.githubusercontent.com/arjunaayasa/sasaklang/main/install.ps1 | iex
+```
 
 #### Linux / macOS
-1.  Download binary (`sasaklang-linux` atau `sasaklang-darwin`).
-2.  Buka terminal dan jalankan:
-    ```bash
-    # Beri izin eksekusi
-    chmod +x sasaklang-darwin
-    
-    # Pindahkan ke bin (agar bisa diakses dari mana saja)
-    sudo mv sasaklang-darwin /usr/local/bin/sasaklang
-    ```
-3.  Cek instalasi:
-    ```bash
-    sasaklang
-    ```
+```bash
+curl -fsSL https://raw.githubusercontent.com/arjunaayasa/sasaklang/main/install.sh | bash
+```
+
+Script akan otomatis:
+- Download binary terbaru (v1.0.6+)
+- Install ke `~/.sasaklang/bin/`
+- Tambahkan ke PATH
+
+### 🎯 Manual Install (Binary)
+1. Download binary (Windows/Linux/Mac) dari [GitHub Releases](https://github.com/arjunaayasa/sasaklang/releases).
+2. Extract dan tambahkan ke PATH secara manual.
 
 ### 🔨 Build dari Source
 
