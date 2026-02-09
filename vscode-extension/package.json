@@ -2,7 +2,7 @@
   "name": "sasaklang",
   "displayName": "SasakLang",
   "description": "Syntax highlighting and snippets for SasakLang programming language",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "publisher": "arjunaayasa",
   "engines": {
     "vscode": "^1.60.0"
