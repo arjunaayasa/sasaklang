@@ -1,0 +1,45 @@
+# SasakLang Phase 2 Features Demo
+
+# 1. Break (tipuq) dan Continue (lanjut)
+tulis("=== Demo Break & Continue ===")
+
+tulis("Looping 1 sampai 10, lewati 5, berhenti di 8:")
+kanggo (gawe i = 1; i <= 10; i = i + 1) {
+    yen (i == 5) {
+        tulis("Melewati angka 5 (lanjut)")
+        lanjut
+    }
+
+    yen (i == 8) {
+        tulis("Angka 8 ditemukan, berhenti (tipuq)")
+        tipuq
+    }
+
+    tulis("Angka:", i)
+}
+
+tulis("")
+
+# 2. Random (acak)
+tulis("=== Demo Random (acak) ===")
+tulis("Angka acak 0-99:", acak(100))
+tulis("Angka acak 0-9:", acak(10))
+tulis("Angka acak 0-1:", acak(2))
+
+tulis("")
+
+# 3. Sleep (antos)
+tulis("=== Demo Sleep (antos) ===")
+tulis("Tunggu 1 detik...")
+antos(1000)
+tulis("Selesai menunggu!")
+
+tulis("")
+tulis("Menghitung mundur dengan jeda:")
+gawe x = 3
+salama (x > 0) {
+    tulis(x, "...")
+    antos(500)
+    x = x - 1
+}
+tulis("Mulai!")

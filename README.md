@@ -49,8 +49,8 @@ go build -o sasaklang ./cmd/sasaklang
 sasaklang
 
 # Jalankan file
-sasaklang run examples/hello.sl
-sasaklang examples/hello.sl    # shortcut
+sasaklang run examples/hello.ssk
+sasaklang examples/hello.ssk    # shortcut
 
 # Cek versi
 sasaklang version
@@ -72,6 +72,8 @@ sasaklang version
 | `kanggo` | for | Perulangan for |
 | `pungsi` | function | Definisi fungsi |
 | `balik` | return | Return value |
+| `tipuq` | break | Keluar dari loop |
+| `lanjut` | continue | Lanjut ke iterasi berikutnya |
 
 ### Literals
 
@@ -182,6 +184,8 @@ tulis(orang["nama"])      # Output: Amaq
 | `dorong(arr, item)` | Tambah item ke array (return array baru) |
 | `pertama(arr)` | Elemen pertama array |
 | `akhir(arr)` | Elemen terakhir array |
+| `antos(ms)` | Jeda eksekusi selama n milidetik |
+| `acak(max)` | Angka acak antara 0 sampai max-1 |
 
 ## 🎨 VS Code Extension
 

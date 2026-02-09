@@ -64,6 +64,8 @@ const (
 	KANGGO TokenType = "KANGGO" // for
 	PUNGSI TokenType = "PUNGSI" // function
 	BALIK  TokenType = "BALIK"  // return
+	TIPUQ  TokenType = "TIPUQ"  // break
+	LANJUT TokenType = "LANJUT" // continue
 
 	// Boolean and null literals
 	BENER  TokenType = "BENER"  // true
@@ -82,6 +84,8 @@ var keywords = map[string]TokenType{
 	"kanggo": KANGGO,
 	"pungsi": PUNGSI,
 	"balik":  BALIK,
+	"tipuq":  TIPUQ,
+	"lanjut": LANJUT,
 	"bener":  BENER,
 	"salah":  SALAH,
 	"kosong": KOSONG,

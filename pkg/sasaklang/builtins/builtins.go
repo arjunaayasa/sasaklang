@@ -3,12 +3,46 @@ package builtins
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
 	"time"
 
 	"github.com/arjunaayasa/sasaklang/pkg/sasaklang/object"
 )
+
+// builtinAntos sleeps for n milliseconds
+func builtinAntos(args ...object.Object) object.Object {
+	if len(args) != 1 {
+		return &object.Error{Message: fmt.Sprintf("antos() butuh 1 argumen (ms), dapat %d", len(args))}
+	}
+
+	arg, ok := args[0].(*object.Integer)
+	if !ok {
+		return &object.Error{Message: "argumen antos() harus angka"}
+	}
+
+	time.Sleep(time.Duration(arg.Value) * time.Millisecond)
+	return &object.Null{}
+}
+
+// builtinAcak returns a random number between 0 and n-1
+func builtinAcak(args ...object.Object) object.Object {
+	if len(args) != 1 {
+		return &object.Error{Message: fmt.Sprintf("acak() butuh 1 argumen (max), dapat %d", len(args))}
+	}
+
+	arg, ok := args[0].(*object.Integer)
+	if !ok {
+		return &object.Error{Message: "argumen acak() harus angka"}
+	}
+
+	if arg.Value <= 0 {
+		return &object.Error{Message: "argumen acak() harus lebih besar dari 0"}
+	}
+
+	return &object.Integer{Value: int64(rand.Int63n(arg.Value))}
+}
 
 // Builtins contains all builtin functions
 var Builtins = map[string]*object.Builtin{
@@ -20,6 +54,8 @@ var Builtins = map[string]*object.Builtin{
 	"dorong":  {Fn: builtinDorong},
 	"pertama": {Fn: builtinPertama},
 	"akhir":   {Fn: builtinAkhir},
+	"antos":   {Fn: builtinAntos},
+	"acak":    {Fn: builtinAcak},
 }
 
 // builtinTulis prints arguments separated by space with newline

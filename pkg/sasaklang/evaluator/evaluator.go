@@ -39,6 +39,10 @@ func Eval(node ast.Node, env *object.Environment) object.Object {
 		return evalWhileStatement(node, env)
 	case *ast.ForStatement:
 		return evalForStatement(node, env)
+	case *ast.BreakStatement:
+		return &object.BreakReturnValue{}
+	case *ast.ContinueStatement:
+		return &object.ContinueReturnValue{}
 
 	// Expressions
 	case *ast.IntegerLiteral:
@@ -138,7 +142,7 @@ func evalBlockStatement(block *ast.BlockStatement, env *object.Environment) obje
 
 		if result != nil {
 			rt := result.Type()
-			if rt == object.RETURN_VALUE_OBJ || rt == object.ERROR_OBJ {
+			if rt == object.RETURN_VALUE_OBJ || rt == object.ERROR_OBJ || rt == object.BREAK_OBJ || rt == object.CONTINUE_OBJ {
 				return result
 			}
 		}
@@ -183,6 +187,14 @@ func evalWhileStatement(node *ast.WhileStatement, env *object.Environment) objec
 			if result.Type() == object.RETURN_VALUE_OBJ || result.Type() == object.ERROR_OBJ {
 				return result
 			}
+			if result.Type() == object.BREAK_OBJ {
+				result = NULL
+				break
+			}
+			if result.Type() == object.CONTINUE_OBJ {
+				// Just continue the loop
+				continue
+			}
 		}
 	}
 
@@ -219,6 +231,13 @@ func evalForStatement(node *ast.ForStatement, env *object.Environment) object.Ob
 		if result != nil {
 			if result.Type() == object.RETURN_VALUE_OBJ || result.Type() == object.ERROR_OBJ {
 				return result
+			}
+			if result.Type() == object.BREAK_OBJ {
+				result = NULL
+				break
+			}
+			if result.Type() == object.CONTINUE_OBJ {
+				// Don't return, just continue to update
 			}
 		}
 

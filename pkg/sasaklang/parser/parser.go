@@ -199,6 +199,10 @@ func (p *Parser) parseStatement() ast.Statement {
 		return p.parseConstStatement()
 	case token.BALIK:
 		return p.parseReturnStatement()
+	case token.TIPUQ:
+		return p.parseBreakStatement()
+	case token.LANJUT:
+		return p.parseContinueStatement()
 	case token.SALAMA:
 		return p.parseWhileStatement()
 	case token.KANGGO:
@@ -262,6 +266,26 @@ func (p *Parser) parseReturnStatement() *ast.ReturnStatement {
 	if !p.curTokenIs(token.SEMICOLON) && !p.curTokenIs(token.NEWLINE) && !p.curTokenIs(token.RBRACE) && !p.curTokenIs(token.EOF) {
 		stmt.ReturnValue = p.parseExpression(LOWEST)
 	}
+
+	if p.peekTokenIs(token.SEMICOLON) {
+		p.nextToken()
+	}
+
+	return stmt
+}
+
+func (p *Parser) parseBreakStatement() *ast.BreakStatement {
+	stmt := &ast.BreakStatement{Token: p.curToken}
+
+	if p.peekTokenIs(token.SEMICOLON) {
+		p.nextToken()
+	}
+
+	return stmt
+}
+
+func (p *Parser) parseContinueStatement() *ast.ContinueStatement {
+	stmt := &ast.ContinueStatement{Token: p.curToken}
 
 	if p.peekTokenIs(token.SEMICOLON) {
 		p.nextToken()

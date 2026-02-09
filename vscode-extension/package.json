@@ -23,7 +23,7 @@
           "sasaklang"
         ],
         "extensions": [
-          ".sl",
+          ".ssk",
           ".sasak"
         ],
         "configuration": "./language-configuration.json"

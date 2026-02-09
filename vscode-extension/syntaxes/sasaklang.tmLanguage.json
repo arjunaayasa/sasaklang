@@ -41,15 +41,15 @@
             "patterns": [
                 {
                     "name": "keyword.control.sasaklang",
-                    "match": "\\b(yen|neng|salama|kanggo|balik)\\b"
+                    "match": "\\b(yen|neng|salama|kanggo|balik|tipuq|lanjut)\\b"
                 },
                 {
                     "name": "keyword.declaration.sasaklang",
                     "match": "\\b(gawe|tetep|pungsi)\\b"
                 },
                 {
-                    "name": "keyword.other.sasaklang",
-                    "match": "\\b(tulis|tanya)\\b"
+                    "name": "support.function.builtin.sasaklang",
+                    "match": "\\b(tulis|tanya|panjang|jenis|waktu|dorong|pertama|akhir|antos|acak)\\b"
                 }
             ]
         },

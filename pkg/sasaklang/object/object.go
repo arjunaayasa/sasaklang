@@ -23,6 +23,8 @@ const (
 	BUILTIN_OBJ      ObjectType = "BUILTIN"
 	ARRAY_OBJ        ObjectType = "ARRAY"
 	MAP_OBJ          ObjectType = "MAP"
+	BREAK_OBJ        ObjectType = "BREAK"
+	CONTINUE_OBJ     ObjectType = "CONTINUE"
 )
 
 // Object is the interface all objects implement
@@ -116,6 +118,18 @@ func (e *Error) Inspect() string {
 	}
 	return fmt.Sprintf("Error: %s", e.Message)
 }
+
+// BreakReturnValue wraps a break statement
+type BreakReturnValue struct{}
+
+func (br *BreakReturnValue) Type() ObjectType { return BREAK_OBJ }
+func (br *BreakReturnValue) Inspect() string  { return "tipuq" }
+
+// ContinueReturnValue wraps a continue statement
+type ContinueReturnValue struct{}
+
+func (cr *ContinueReturnValue) Type() ObjectType { return CONTINUE_OBJ }
+func (cr *ContinueReturnValue) Inspect() string  { return "lanjut" }
 
 // Function represents a function object
 type Function struct {
