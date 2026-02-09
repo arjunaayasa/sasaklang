@@ -58,8 +58,6 @@ const (
 	// Keywords (Sasak language)
 	GAWE   TokenType = "GAWE"   // var/let
 	TETEP  TokenType = "TETEP"  // const
-	TULIS  TokenType = "TULIS"  // print
-	TANYA  TokenType = "TANYA"  // input
 	YEN    TokenType = "YEN"    // if
 	NENG   TokenType = "NENG"   // else
 	SALAMA TokenType = "SALAMA" // while
@@ -74,11 +72,10 @@ const (
 )
 
 // keywords maps Sasak keywords to their token types
+// Note: tulis, tanya are NOT keywords - they are built-in functions
 var keywords = map[string]TokenType{
 	"gawe":   GAWE,
 	"tetep":  TETEP,
-	"tulis":  TULIS,
-	"tanya":  TANYA,
 	"yen":    YEN,
 	"neng":   NENG,
 	"salama": SALAMA,

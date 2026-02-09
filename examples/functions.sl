@@ -39,7 +39,7 @@ pungsi fibonacci(n) {
 
 tulis("Fibonacci sequence:")
 kanggo (gawe i = 0; i <= 10; i = i + 1) {
-    tulis("fib(" + i + ") =", fibonacci(i))
+    tulis("fib(", i, ") =", fibonacci(i))
 }
 
 tulis("")
@@ -55,7 +55,7 @@ pungsi faktorial(n) {
 
 tulis("Factorial:")
 kanggo (gawe i = 1; i <= 5; i = i + 1) {
-    tulis(i + "! =", faktorial(i))
+    tulis(i, "! =", faktorial(i))
 }
 
 tulis("")
